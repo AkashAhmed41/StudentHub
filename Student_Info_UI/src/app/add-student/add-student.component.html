@@ -24,7 +24,7 @@
           <label for="income" class="form-label">Income</label>
           <input type="number" class="form-control" id="income" name="income" [(ngModel)]="addStudentRequest.income">
         </div>
-        <button type="submit" class="btn btn-primary">Save Details</button>
+        <button type="submit" class="btn btn-primary" [disabled]="!form.dirty && form.valid">Save Details</button>
       </form>
     </div>
   </div>
