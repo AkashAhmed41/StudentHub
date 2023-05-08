@@ -1,0 +1,38 @@
+<div class="container my-5">
+  <h1 class="mb-3">Update/Edit Student Info</h1>
+
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="updateStudentInfo()">
+        <div class="mb-3">
+          <label for="id" class="form-label">Id</label>
+          <input type="text" class="form-control" id="id" readonly name="id" [(ngModel)]="updatedStudentInfo.id">
+        </div>
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="updatedStudentInfo.name">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="updatedStudentInfo.email">
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone</label>
+          <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="updatedStudentInfo.phone">
+        </div>
+        <div class="mb-3">
+          <label for="department" class="form-label">Department</label>
+          <input type="text" class="form-control" id="department" name="department" [(ngModel)]="updatedStudentInfo.department">
+        </div>
+        <div class="mb-3">
+          <label for="income" class="form-label">Income</label>
+          <input type="number" class="form-control" id="income" name="income" [(ngModel)]="updatedStudentInfo.income">
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!form.dirty && form.valid">Update Details</button>
+        <button type="button" class="btn btn-danger" (click)="deleteStudentInfo(updatedStudentInfo.id)">Delete Record</button>
+
+      </form>
+    </div>
+  </div>
+</div>
+

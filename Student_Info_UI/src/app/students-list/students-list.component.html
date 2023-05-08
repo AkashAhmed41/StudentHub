@@ -1,0 +1,31 @@
+<div class="container my-5">
+  <h1 class="mb-3">Students List</h1>
+
+  <table class="table" *ngIf="students && students.length > 0">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Department</th>
+        <th>Income</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.id }}</td>
+        <td>{{ student.name }}</td>
+        <td>{{ student.email }}</td>
+        <td>{{ student.phone }}</td>
+        <td>{{ student.department }}</td>
+        <td>{{ student.income }}</td>
+        <td><a [routerLink]="['/students','edit',student.id]">View/Update</a></td>
+      </tr>
+    </tbody>
+
+  </table>
+
+  <p *ngIf="!students || students.length <= 0">No Students Found!</p>
+</div>

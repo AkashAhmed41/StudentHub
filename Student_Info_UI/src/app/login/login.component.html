@@ -1,0 +1,25 @@
+<div class="container my-5">
+  <h3 class="mb-3">Provide your login credentials</h3>
+
+  <div class="row">
+    <div class="col-6">
+      <form [formGroup]="loginFrom">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" formControlName="username">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" formControlName="password" placeholder="At least 8 character">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col-6">
+      <h6>Haven't registered yet? <a routerLink="/register">Register</a></h6>
+    </div>
+  </div>
+</div>
