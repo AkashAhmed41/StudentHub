@@ -1,6 +1,7 @@
 
-
+using StudentInfo_Backend.API;
 using StudentInfo_Backend.API.Database;
+using StudentInfo_Backend.API.NewFolder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,26 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<RequestValidatorMiddleware>();
+
+// app.UseMiddleware<SampleMiddleware>();
+
+// app.UseSampleMiddleware();
+
+// app.Use(async (context, next) =>
+// {
+//     app.Logger.LogInformation("Inside the middleware!");
+//     var start = DateTime.UtcNow;
+//     await next.Invoke(context);
+//     app.Logger.LogInformation($"Request {context.Request.Path}: {(DateTime.UtcNow - start).TotalMilliseconds}");
+// });
+
+// app.Use((HttpContext context, Func<Task> next) =>
+// {
+//     app.Logger.LogInformation("Terminating the Request!");
+//     return Task.CompletedTask;
+// });
 
 app.UseHttpsRedirection();
 
