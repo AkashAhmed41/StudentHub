@@ -1,5 +1,6 @@
 ﻿using System.Net;
-using System.Text.RegularExpressions;
+using System.Reflection;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace StudentInfo_Backend.API.NewFolder;
 
@@ -14,7 +15,7 @@ public class RequestValidatorMiddleware
 
     public async Task InvokeAsync(HttpContext context)
     {
-        if (!IsValidRequest(context.Request))
+        if (!IsValidRequest(context))
         {
             context.Response.StatusCode = (int)HttpStatusCode.MethodNotAllowed;
             await context.Response.WriteAsync("Invalid request method!");
@@ -24,11 +25,11 @@ public class RequestValidatorMiddleware
         await _next(context);
     }
 
-    private bool IsValidRequest(HttpRequest request)
+    private bool IsValidRequest(HttpContext context)
     {
-        string apiMethodPath = request.Path;
-        HttpMethod requestedMethod = new HttpMethod(request.Method);
-        HttpMethod allowedMethod = GetAllowedMethod(apiMethodPath);
+        var routeData = context.GetRouteData();
+        var requestedMethod = context.Request.Method;
+        var allowedMethod = GetAllowedMethod(routeData);
 
         if (requestedMethod != allowedMethod)
         {
@@ -38,25 +39,19 @@ public class RequestValidatorMiddleware
         return true;
     }
 
-    private HttpMethod GetAllowedMethod(string apiMethodPath)
+    private string GetAllowedMethod(RouteData routeData)
     {
-        string actionName = apiMethodPath.Split('/')[3];
-        Match match = Regex.Match(actionName, @"^[A-Z][a-z]+(?=[A-Z][a-z])");
-        string methodName = match.Value;
-
-        switch (methodName)
+        var endpointMethod = routeData?.Values["action"]?.ToString();
+        var controllerName = routeData?.Values["controller"]?.ToString();
+        var controllerType = Assembly.GetExecutingAssembly().GetTypes()
+            .FirstOrDefault(t => t.Name == $"{controllerName}Controller");
+        if (controllerType == null)
         {
-            case "Add":
-                return HttpMethod.Post;
-            case "Get":
-                return HttpMethod.Get;
-            case "Update":
-                return HttpMethod.Put;
-            case "Delete":
-                return HttpMethod.Delete;
-            default:
-                return null;
+            return null;
         }
+        var methodInfo = controllerType.GetMethod(endpointMethod);
+        var methodName = methodInfo.GetCustomAttribute<HttpMethodAttribute>().HttpMethods.FirstOrDefault();
+        return methodName;
     }
 }
 

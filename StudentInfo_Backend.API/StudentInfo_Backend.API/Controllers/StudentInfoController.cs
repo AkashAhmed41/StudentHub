@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using MongoDB.Driver;
+﻿using Microsoft.AspNetCore.Mvc;
 using StudentInfo_Backend.API.Database;
 using StudentInfo_Backend.API.Models;
 
