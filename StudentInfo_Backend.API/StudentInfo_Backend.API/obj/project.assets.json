@@ -970,11 +970,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Students_Information-CRUD\\StudentInfo_Backend.API\\StudentInfo_Backend.API\\StudentInfo_Backend.API.csproj",
+      "projectUniqueName": "F:\\StudentHub\\StudentInfo_Backend.API\\StudentInfo_Backend.API\\StudentInfo_Backend.API.csproj",
       "projectName": "StudentInfo_Backend.API",
-      "projectPath": "F:\\Students_Information-CRUD\\StudentInfo_Backend.API\\StudentInfo_Backend.API\\StudentInfo_Backend.API.csproj",
+      "projectPath": "F:\\StudentHub\\StudentInfo_Backend.API\\StudentInfo_Backend.API\\StudentInfo_Backend.API.csproj",
       "packagesPath": "C:\\Users\\akash.ahmed\\.nuget\\packages\\",
-      "outputPath": "F:\\Students_Information-CRUD\\StudentInfo_Backend.API\\StudentInfo_Backend.API\\obj\\",
+      "outputPath": "F:\\StudentHub\\StudentInfo_Backend.API\\StudentInfo_Backend.API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5DMob2UIkiBMu7x8etekVQjBLVoiOI36iYMpjdwtdafs3FHnVzmIWUMBQQMq0iH2F4iQoUHf9j0lxbZRdAKoKw==",
+  "dgSpecHash": "rUlsf9h+eO6kGsi/wsB0B/9MnV1Gnlk/S2HGS3dosy8y5p3YjEwNxUzFLbMy5rNexErOGgk1RnDbMUvyqn9P3g==",
   "success": true,
-  "projectFilePath": "F:\\Students_Information-CRUD\\StudentInfo_Backend.API\\StudentInfo_Backend.API\\StudentInfo_Backend.API.csproj",
+  "projectFilePath": "F:\\StudentHub\\StudentInfo_Backend.API\\StudentInfo_Backend.API\\StudentInfo_Backend.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\akash.ahmed\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\akash.ahmed\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
